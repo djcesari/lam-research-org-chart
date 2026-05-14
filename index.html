@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lam Research - Org Chart</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f0f2f5; padding: 30px; }
+h1 { text-align: center; color: #1a1a2e; margin-bottom: 5px; font-size: 28px; }
+.subtitle { text-align: center; color: #666; margin-bottom: 8px; font-size: 13px; }
+.legend { text-align: center; margin-bottom: 25px; font-size: 11px; color: #888; }
+.legend span { margin: 0 10px; }
+.legend .verified { color: #27ae60; }
+.legend .sf-match { color: #2980b9; }
+.legend .role-target { color: #e67e22; }
+
+.org-chart { display: flex; flex-direction: column; align-items: center; }
+
+/* Card styles */
+.card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  padding: 14px 18px;
+  min-width: 240px;
+  max-width: 280px;
+  text-align: center;
+  position: relative;
+  transition: transform 0.2s;
+}
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,0.18); }
+.card .name { font-weight: 700; font-size: 14px; color: #1a1a2e; }
+.card .title { font-size: 11px; color: #555; margin-top: 2px; line-height: 1.3; }
+.card .email { font-size: 10px; color: #2980b9; margin-top: 4px; word-break: break-all; }
+.card .email a { color: #2980b9; text-decoration: none; }
+.card .email a:hover { text-decoration: underline; }
+.card .badge { font-size: 9px; padding: 2px 6px; border-radius: 3px; display: inline-block; margin-top: 4px; }
+.badge-sec { background: #d4edda; color: #155724; }
+.badge-sf { background: #d1ecf1; color: #0c5460; }
+.badge-both { background: #e8daef; color: #4a235a; }
+.card .linkedin { margin-top: 5px; }
+.card .linkedin a { font-size: 10px; color: #0077b5; text-decoration: none; }
+.card .linkedin a:hover { text-decoration: underline; }
+
+/* Header card (CEO) */
+.card.ceo { border-top: 4px solid #1a1a2e; min-width: 300px; }
+.card.csuite { border-top: 4px solid #2c3e50; }
+.card.svp { border-top: 3px solid #34495e; }
+.card.director { border-top: 3px solid #7f8c8d; }
+.card.manager { border-top: 2px solid #bdc3c7; }
+
+/* Layout */
+.level { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 30px; position: relative; }
+.level-label { text-align: center; font-size: 11px; font-weight: 700; color: #999; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+
+/* Connector lines */
+.connector-down { width: 2px; height: 25px; background: #ccc; margin: 0 auto; }
+.connector-horizontal { height: 2px; background: #ccc; margin: 0 auto 0 auto; }
+
+/* Section */
+.section { margin-top: 30px; padding: 20px; background: #fff; border-radius: 10px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+.section h2 { font-size: 16px; color: #2c3e50; margin-bottom: 15px; padding-bottom: 8px; border-bottom: 2px solid #ecf0f1; }
+.section .level { justify-content: flex-start; }
+
+/* Print */
+@media print {
+  body { background: #fff; padding: 10px; }
+  .card { box-shadow: 0 0 1px #ccc; break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<h1>Lam Research Corporation</h1>
+<p class="subtitle">Org Chart — Executive Leadership, IT/Engineering & Key Contacts</p>
+<p class="subtitle">Semiconductor Equipment | ~17,000 employees | Fremont, CA | LRCX</p>
+<div class="legend">
+  <span class="verified">● SEC 10-K Verified</span>
+  <span class="sf-match">● Salesforce Contact</span>
+  <span class="role-target">● Both Sources</span>
+</div>
+
+<!-- CEO -->
+<div class="org-chart">
+  <div class="level-label">Chief Executive Officer</div>
+  <div class="level">
+    <div class="card ceo">
+      <div class="name">Timothy M. Archer</div>
+      <div class="title">President & Chief Executive Officer</div>
+      <div class="email"><a href="mailto:tim.archer@lamresearch.com">tim.archer@lamresearch.com</a></div>
+      <span class="badge badge-both">SEC 10-K + Salesforce</span>
+      <div class="linkedin"><a href="https://www.linkedin.com/search/results/all/?keywords=Timothy%20Archer%20Lam%20Research" target="_blank">LinkedIn →</a></div>
+    </div>
+  </div>
+
+  <div class="connector-down"></div>
+
+  <!-- C-Suite -->
+  <div class="level-label">C-Suite</div>
+  <div class="level">
+    <div class="card csuite">
+      <div class="name">Douglas R. Bettinger</div>
+      <div class="title">EVP, Chief Financial Officer</div>
+      <span class="badge badge-sec">SEC 10-K Verified</span>
+      <div class="linkedin"><a href="https://www.linkedin.com/search/results/all/?keywords=Douglas%20Bettinger%20Lam%20Research" target="_blank">LinkedIn →</a></div>
+    </div>
+    <div class="card csuite">
+      <div class="name">Patrick J. Lord</div>
+      <div class="title">EVP, Chief Operating Officer</div>
+      <div class="title" style="font-size:9px;color:#888;margin-top:2px;">Operations, IT, Cybersecurity, Gov Affairs</div>
+      <span class="badge badge-sec">SEC 10-K Verified</span>
+      <div class="linkedin"><a href="https://www.linkedin.com/search/results/all/?keywords=Patrick%20Lord%20Lam%20Research" target="_blank">LinkedIn →</a></div>
+    </div>
+    <div class="card csuite">
+      <div class="name">Ava A. Harter</div>
+      <div class="title">SVP, Chief Legal Officer & Secretary</div>
+      <span class="badge badge-sec">SEC 10-K Verified</span>
+      <div class="linkedin"><a href="https://www.linkedin.com/search/results/all/?keywords=Ava%20Harter%20Lam%20Research" target="_blank">LinkedIn →</a></div>
+    </div>
+    <div class="card csuite">
+      <div class="name">Vahid Vahedi</div>
+      <div class="title">SVP, Chief Technology & Sustainability Officer</div>
+      <span class="badge badge-sec">SEC 10-K Verified</span>
+      <div class="linkedin"><a href="https://www.linkedin.com/search/results/all/?keywords=Vahid%20Vahedi%20Lam%20Research" target="_blank">LinkedIn →</a></div>
+    </div>
+  </div>
+
+  <div class="connector-down"></div>
+
+  <!-- SVP -->
+  <div class="level-label">Senior Vice Presidents</div>
+  <div class="level">
+    <div class="card svp">
+      <div class="name">Neil J. Fernandes</div>
+      <div class="title">SVP, Global Customer Operations</div>
+      <span class="badge badge-sec">SEC 10-K Verified</span>
+      <div class="linkedin"><a href="https://www.linkedin.com/search/results/all/?keywords=Neil%20Fernandes%20Lam%20Research" target="_blank">LinkedIn →</a></div>
+    </div>
+    <div class="card svp">
+      <div class="name">Seshasayee (Sesha) Varadarajan</div>
+      <div class="title">SVP, Global Products Group</div>
+      <span class="badge badge-sec">SEC 10-K Verified</span>
+      <div class="linkedin"><a href="https://www.linkedin.com/search/results/all/?keywords=Seshasayee%20Varadarajan%20Lam%20Research" target="_blank">LinkedIn →</a></div>
+    </div>
+  </div>
+</div>
+
+<!-- IT & Engineering Section -->
+<div class="section">
+  <h2>IT & Engineering Leadership (Salesforce Contacts)</h2>
+  
+  <div class="level-label">CIO & Key IT Leadership</div>
+  <div class="level">
+    <div class="card director">
+      <div class="name">Troy Seelye</div>
+      <div class="title">Chief Information Officer, GVP</div>
+      <div class="email"><a href="mailto:troy.seelye@lamresearch.com">troy.seelye@lamresearch.com</a></div>
+      <span class="badge badge-sf">Salesforce</span>
+      <div class="linkedin"><a href="https://www.linkedin.com/search/results/all/?keywords=Troy%20Seelye%20Lam%20Research" target="_blank">LinkedIn →</a></div>
+    </div>
+    <div class="card director">
+      <div class="name">Erin Zwinger</div>
+      <div class="title">Director, Security</div>
+      <div class="email"><a href="mailto:erin.zwinger@lamresearch.com">erin.zwinger@lamresearch.com</a></div>
+      <span class="badge badge-sf">Salesforce</span>
+    </div>
+    <div class="card director">
+      <div class="name">Rahul Kharwadkar</div>
+      <div class="title">Director, Cloud and Automation</div>
+      <div class="email"><a href="mailto:rahul.kharwadkar@lamresearch.com">rahul.kharwadkar@lamresearch.com</a></div>
+      <span class="badge badge-sf">Salesforce</span>
+    </div>
+  </div>
+
+  <div class="level-label" style="margin-top:20px;">Software & Engineering Directors</div>
+  <div class="level">
+    <div class="card director">
+      <div class="name">Lina Eydus</div>
+      <div class="title">Director, Software Engineering</div>
+      <div class="email"><a href="mailto:lina.eydus@lamresearch.com">lina.eydus@lamresearch.com</a></div>
+      <span class="badge badge-sf">Salesforce</span>
+    </div>
+    <div class="card director">
+      <div class="name">Candi Kristoffersen</div>
+      <div class="title">GVP, Products Engineering</div>
+      <div class="email"><a href="mailto:candi.kristoffersen@lamresearch.com">candi.kristoffersen@lamresearch.com</a></div>
+      <span class="badge badge-sf">Salesforce</span>
+    </div>
+    <div class="card director">
+      <div class="name">Tony Hsu</div>
+      <div class="title">Head Director, Factory Automation & Productivity Tools Software</div>
+      <div class="email"><a href="mailto:tony.hsu@lamresearch.com">tony.hsu@lamresearch.com</a></div>
+      <span class="badge badge-sf">Salesforce</span>
+    </div>
+    <div class="card director">
+      <div class="name">Archana Bellamkonda</div>
+      <div class="title">DevSecOps Program Leader</div>
+      <div class="email"><a href="mailto:archana.bellamkonda@lamresearch.com">archana.bellamkonda@lamresearch.com</a></div>
+      <span class="badge badge-sf">Salesforce</span>
+    </div>
+  </div>
+
+  <div class="level-label" style="margin-top:20px;">Senior Directors</div>
+  <div class="level">
+    <div class="card director">
+      <div class="name">Ashish Brahmbhatt</div>
+      <div class="title">Senior Director, Software Engineering</div>
+      <div class="email"><a href="mailto:ashish.brahmbhatt@lamresearch.com">ashish.brahmbhatt@lamresearch.com</a></div>
+      <span class="badge badge-sf">Salesforce</span>
+    </div>
+    <div class="card director">
+      <div class="name">Paul Franzen</div>
+      <div class="title">Senior Director, AI Systems Engineering</div>
+      <div class="email"><a href="mailto:paul.franzen@lamresearch.com">paul.franzen@lamresearch.com</a></div>
+      <span class="badge badge-sf">Salesforce</span>
+    </div>
+    <div class="card director">
+      <div class="name">Ganesh Upadhyaya</div>
+      <div class="title">Senior Director, Engineering</div>
+      <div class="email"><a href="mailto:ganesh.upadhyaya@lamresearch.com">ganesh.upadhyaya@lamresearch.com</a></div>
+      <span class="badge badge-sf">Salesforce</span>
+    </div>
+    <div class="card director">
+      <div class="name">Lee Chua</div>
+      <div class="title">Senior Director, Technology</div>
+      <div class="email"><a href="mailto:leepeng.chua@lamresearch.com">leepeng.chua@lamresearch.com</a></div>
+      <span class="badge badge-sf">Salesforce</span>
+    </div>
+  </div>
+
+  <div class="level-label" style="margin-top:20px;">Engineering Directors</div>
+  <div class="level">
+    <div class="card director">
+      <div class="name">George Thomas</div>
+      <div class="title">Director, Engineering</div>
+      <div class="email"><a href="mailto:george.thomas@lamresearch.com">george.thomas@lamresearch.com</a></div>
+      <span class="badge badge-sf">Salesforce</span>
+    </div>
+    <div class="card director">
+      <div class="name">Pradeep Kumar</div>
+      <div class="title">Director, Engineering</div>
+      <div class="email"><a href="mailto:pradeep.kumar@lamresearch.com">pradeep.kumar@lamresearch.com</a></div>
+      <span class="badge badge-sf">Salesforce</span>
+    </div>
+    <div class="card director">
+      <div class="name">Jun Xue</div>
+      <div class="title">Director, Engineering</div>
+      <div class="email"><a href="mailto:jun.xue@lamresearch.com">jun.xue@lamresearch.com</a></div>
+      <span class="badge badge-sf">Salesforce</span>
+    </div>
+    <div class="card director">
+      <div class="name">Ian Kenworthy</div>
+      <div class="title">Director, Engineering</div>
+      <div class="email"><a href="mailto:ian.kenworthy@lamresearch.com">ian.kenworthy@lamresearch.com</a></div>
+      <span class="badge badge-sf">Salesforce</span>
+    </div>
+    <div class="card director">
+      <div class="name">Ratndeep Srivastava</div>
+      <div class="title">Director, Engineering</div>
+      <div class="email"><a href="mailto:ratndeep.srivastava@lamresearch.com">ratndeep.srivastava@lamresearch.com</a></div>
+      <span class="badge badge-sf">Salesforce</span>
+    </div>
+    <div class="card director">
+      <div class="name">Sean O'Brien</div>
+      <div class="title">Director, Etch Electrical Engineering</div>
+      <div class="email"><a href="mailto:sean.obrien@lamresearch.com">sean.obrien@lamresearch.com</a></div>
+      <span class="badge badge-sf">Salesforce</span>
+    </div>
+  </div>
+
+  <div class="level-label" style="margin-top:20px;">IT Directors</div>
+  <div class="level">
+    <div class="card director">
+      <div class="name">Sanjay Gopinath</div>
+      <div class="title">Director, Information Technology</div>
+      <div class="email"><a href="mailto:sanjay.gopinath@lamresearch.com">sanjay.gopinath@lamresearch.com</a></div>
+      <span class="badge badge-sf">Salesforce</span>
+    </div>
+    <div class="card director">
+      <div class="name">Jaehong Kim</div>
+      <div class="title">Director, Information Technology</div>
+      <div class="email"><a href="mailto:jaehong.kim@lamresearch.com">jaehong.kim@lamresearch.com</a></div>
+      <span class="badge badge-sf">Salesforce</span>
+    </div>
+    <div class="card director">
+      <div class="name">Kevin Mclaughlin</div>
+      <div class="title">Director, Information Technology</div>
+      <div class="email"><a href="mailto:kevin.mclaughlin@lamresearch.com">kevin.mclaughlin@lamresearch.com</a></div>
+      <span class="badge badge-sf">Salesforce</span>
+    </div>
+    <div class="card director">
+      <div class="name">Ravi Iyer</div>
+      <div class="title">Director, Information Technology</div>
+      <div class="email"><a href="mailto:ravi.iyer@lamresearch.com">ravi.iyer@lamresearch.com</a></div>
+      <span class="badge badge-sf">Salesforce</span>
+    </div>
+    <div class="card director">
+      <div class="name">Vinayak Ramanan</div>
+      <div class="title">Director, Information Technology</div>
+      <div class="email"><a href="mailto:vinayak.ramanan@lamresearch.com">vinayak.ramanan@lamresearch.com</a></div>
+      <span class="badge badge-sf">Salesforce</span>
+    </div>
+    <div class="card director">
+      <div class="name">Tariq Majid</div>
+      <div class="title">Director, Information Technology</div>
+      <div class="email"><a href="mailto:tariq.majid@lamresearch.com">tariq.majid@lamresearch.com</a></div>
+      <span class="badge badge-sf">Salesforce</span>
+    </div>
+  </div>
+
+  <div class="level-label" style="margin-top:20px;">AI & Data</div>
+  <div class="level">
+    <div class="card director">
+      <div class="name">Ranjan Grover</div>
+      <div class="title">AI Architect</div>
+      <div class="email"><a href="mailto:ranjan.grover@lamresearch.com">ranjan.grover@lamresearch.com</a></div>
+      <span class="badge badge-sf">Salesforce</span>
+    </div>
+    <div class="card director">
+      <div class="name">Amy Mesa</div>
+      <div class="title">Director, Data Professional</div>
+      <div class="email"><a href="mailto:amy.mesa@lamresearch.com">amy.mesa@lamresearch.com</a></div>
+      <span class="badge badge-sf">Salesforce</span>
+    </div>
+  </div>
+
+  <div class="level-label" style="margin-top:20px;">Senior Managers</div>
+  <div class="level">
+    <div class="card manager">
+      <div class="name">Anand Bhambure</div>
+      <div class="title">Sr. Manager, Ent Apps, Cloud & Automation</div>
+      <div class="email"><a href="mailto:anand.bhambure@lamresearch.com">anand.bhambure@lamresearch.com</a></div>
+      <span class="badge badge-sf">Salesforce</span>
+    </div>
+    <div class="card manager">
+      <div class="name">Cherie Riesberg</div>
+      <div class="title">Sr. Manager, Information Security Engineering</div>
+      <div class="email"><a href="mailto:cherie.riesberg@lamresearch.com">cherie.riesberg@lamresearch.com</a></div>
+      <span class="badge badge-sf">Salesforce</span>
+    </div>
+  </div>
+</div>
+
+<!-- Board -->
+<div class="section" style="margin-top:30px;">
+  <h2>Board of Directors (SEC 10-K Verified)</h2>
+  <div class="level">
+    <div class="card" style="border-top: 3px solid #8e44ad;">
+      <div class="name">Abhijit Y. Talwalkar</div>
+      <div class="title">Chairman of the Board</div>
+      <span class="badge badge-sec">SEC 10-K</span>
+    </div>
+    <div class="card" style="border-top: 3px solid #8e44ad;">
+      <div class="name">John M. Dineen</div>
+      <div class="title">Director</div>
+      <span class="badge badge-sec">SEC 10-K</span>
+    </div>
+    <div class="card" style="border-top: 3px solid #8e44ad;">
+      <div class="name">Sohail U. Ahmed</div>
+      <div class="title">Director</div>
+      <span class="badge badge-sec">SEC 10-K</span>
+    </div>
+    <div class="card" style="border-top: 3px solid #8e44ad;">
+      <div class="name">Eric K. Brandt</div>
+      <div class="title">Director</div>
+      <span class="badge badge-sec">SEC 10-K</span>
+    </div>
+    <div class="card" style="border-top: 3px solid #8e44ad;">
+      <div class="name">Ita M. Brennan</div>
+      <div class="title">Director</div>
+      <span class="badge badge-sec">SEC 10-K</span>
+    </div>
+    <div class="card" style="border-top: 3px solid #8e44ad;">
+      <div class="name">Michael R. Cannon</div>
+      <div class="title">Director</div>
+      <span class="badge badge-sec">SEC 10-K</span>
+    </div>
+    <div class="card" style="border-top: 3px solid #8e44ad;">
+      <div class="name">Mark Fields</div>
+      <div class="title">Director</div>
+      <span class="badge badge-sec">SEC 10-K</span>
+    </div>
+    <div class="card" style="border-top: 3px solid #8e44ad;">
+      <div class="name">Ho Kyu Kang</div>
+      <div class="title">Director</div>
+      <span class="badge badge-sec">SEC 10-K</span>
+    </div>
+    <div class="card" style="border-top: 3px solid #8e44ad;">
+      <div class="name">Bethany J. Mayer</div>
+      <div class="title">Director</div>
+      <span class="badge badge-sec">SEC 10-K</span>
+    </div>
+    <div class="card" style="border-top: 3px solid #8e44ad;">
+      <div class="name">Jyoti K. Mehra</div>
+      <div class="title">Director</div>
+      <span class="badge badge-sec">SEC 10-K</span>
+    </div>
+  </div>
+</div>
+
+<div style="text-align:center;margin-top:30px;color:#999;font-size:11px;">
+  <p>Sources: SEC 10-K (FY ended June 29, 2025) | GitHub Salesforce CRM | Last updated: May 14, 2026</p>
+  <p>Executive names/titles verified from SEC filing. IT/Engineering contacts from Salesforce.</p>
+  <p>⚠ LinkedIn profiles should be manually confirmed — search links provided for convenience.</p>
+</div>
+
+</body>
+</html>
