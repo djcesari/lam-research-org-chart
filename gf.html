@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GlobalFoundries - Org Chart</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f0f2f5; padding: 30px; }
+h1 { text-align: center; color: #1a1a2e; margin-bottom: 5px; font-size: 28px; }
+.subtitle { text-align: center; color: #666; margin-bottom: 8px; font-size: 13px; }
+.legend { text-align: center; margin-bottom: 25px; font-size: 11px; color: #888; }
+.legend span { margin: 0 10px; }
+.legend .verified { color: #27ae60; }
+.legend .sf-match { color: #2980b9; }
+.legend .role-target { color: #e67e22; }
+
+.org-chart { display: flex; flex-direction: column; align-items: center; }
+
+/* Card styles */
+.card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  padding: 14px 18px;
+  min-width: 240px;
+  max-width: 280px;
+  text-align: center;
+  position: relative;
+  transition: transform 0.2s;
+}
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,0.18); }
+.card .name { font-weight: 700; font-size: 14px; color: #1a1a2e; }
+.card .title { font-size: 11px; color: #555; margin-top: 2px; line-height: 1.3; }
+.card .email { font-size: 10px; color: #2980b9; margin-top: 4px; word-break: break-all; }
+.card .email a { color: #2980b9; text-decoration: none; }
+.card .email a:hover { text-decoration: underline; }
+.card .badge { font-size: 9px; padding: 2px 6px; border-radius: 3px; display: inline-block; margin-top: 4px; }
+.badge-web { background: #d4edda; color: #155724; }
+.badge-sf { background: #d1ecf1; color: #0c5460; }
+.badge-both { background: #e8daef; color: #4a235a; }
+.card .linkedin { margin-top: 5px; }
+.card .linkedin a { font-size: 10px; color: #0077b5; text-decoration: none; }
+.card .linkedin a:hover { text-decoration: underline; }
+
+/* Header card (CEO) */
+.card.ceo { border-top: 4px solid #1a1a2e; min-width: 300px; }
+.card.csuite { border-top: 4px solid #2c3e50; }
+.card.svp { border-top: 3px solid #34495e; }
+.card.director { border-top: 3px solid #7f8c8d; }
+.card.manager { border-top: 2px solid #bdc3c7; }
+
+/* Layout */
+.level { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 30px; position: relative; }
+.level-label { text-align: center; font-size: 11px; font-weight: 700; color: #999; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+
+/* Connector lines */
+.connector-down { width: 2px; height: 25px; background: #ccc; margin: 0 auto; }
+
+/* Section */
+.section { margin-top: 30px; padding: 20px; background: #fff; border-radius: 10px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+.section h2 { font-size: 16px; color: #2c3e50; margin-bottom: 15px; padding-bottom: 8px; border-bottom: 2px solid #ecf0f1; }
+.section .level { justify-content: flex-start; }
+
+/* Print */
+@media print {
+  body { background: #fff; padding: 10px; }
+  .card { box-shadow: 0 0 1px #ccc; break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<h1>GlobalFoundries (GF)</h1>
+<p class="subtitle">Org Chart — Executive Leadership, IT & Key Contacts</p>
+<p class="subtitle">Semiconductor Manufacturing | ~13,000 employees | Malta, NY | GFS (NASDAQ)</p>
+<div class="legend">
+  <span class="verified">● GF Website Verified</span>
+  <span class="sf-match">● Salesforce Contact</span>
+  <span class="role-target">● Both Sources</span>
+</div>
+
+<!-- CEO -->
+<div class="org-chart">
+  <div class="level-label">Chief Executive Officer</div>
+  <div class="level">
+    <div class="card ceo">
+      <div class="name">Tim Breen</div>
+      <div class="title">Chief Executive Officer</div>
+      <span class="badge badge-web">GF Website</span>
+      <div class="linkedin"><a href="https://www.linkedin.com/search/results/all/?keywords=Tim%20Breen%20GlobalFoundries" target="_blank">LinkedIn →</a></div>
+    </div>
+  </div>
+
+  <div class="connector-down"></div>
+
+  <!-- C-Suite -->
+  <div class="level-label">C-Suite</div>
+  <div class="level">
+    <div class="card csuite">
+      <div class="name">Sam Franklin</div>
+      <div class="title">Chief Financial Officer</div>
+      <span class="badge badge-web">GF Website</span>
+      <div class="linkedin"><a href="https://www.linkedin.com/search/results/all/?keywords=Sam%20Franklin%20GlobalFoundries" target="_blank">LinkedIn →</a></div>
+    </div>
+    <div class="card csuite">
+      <div class="name">Gregg Bartlett</div>
+      <div class="title">Chief Technology Officer</div>
+      <span class="badge badge-web">GF Website</span>
+      <div class="linkedin"><a href="https://www.linkedin.com/search/results/all/?keywords=Gregg%20Bartlett%20GlobalFoundries" target="_blank">LinkedIn →</a></div>
+    </div>
+    <div class="card csuite">
+      <div class="name">Vishal Mehra</div>
+      <div class="title">Chief Information Officer</div>
+      <div class="title" style="font-size:9px;color:#888;margin-top:2px;">Key IT Decision Maker</div>
+      <span class="badge badge-web">GF Website</span>
+      <div class="linkedin"><a href="https://www.linkedin.com/search/results/all/?keywords=Vishal%20Mehra%20GlobalFoundries" target="_blank">LinkedIn →</a></div>
+    </div>
+    <div class="card csuite">
+      <div class="name">Pradip Singh</div>
+      <div class="title">Chief Manufacturing Officer</div>
+      <span class="badge badge-web">GF Website</span>
+      <div class="linkedin"><a href="https://www.linkedin.com/search/results/all/?keywords=Pradip%20Singh%20GlobalFoundries" target="_blank">LinkedIn →</a></div>
+    </div>
+    <div class="card csuite">
+      <div class="name">Mike Hogan</div>
+      <div class="title">Chief Strategy Officer</div>
+      <span class="badge badge-web">GF Website</span>
+      <div class="linkedin"><a href="https://www.linkedin.com/search/results/all/?keywords=Mike%20Hogan%20GlobalFoundries" target="_blank">LinkedIn →</a></div>
+    </div>
+    <div class="card csuite">
+      <div class="name">Saam Azar</div>
+      <div class="title">Chief Legal Officer</div>
+      <span class="badge badge-web">GF Website</span>
+      <div class="linkedin"><a href="https://www.linkedin.com/search/results/all/?keywords=Saam%20Azar%20GlobalFoundries" target="_blank">LinkedIn →</a></div>
+    </div>
+    <div class="card csuite">
+      <div class="name">Samuel Vicari</div>
+      <div class="title">Chief Customer Officer</div>
+      <span class="badge badge-web">GF Website</span>
+      <div class="linkedin"><a href="https://www.linkedin.com/search/results/all/?keywords=Samuel%20Vicari%20GlobalFoundries" target="_blank">LinkedIn →</a></div>
+    </div>
+    <div class="card csuite">
+      <div class="name">Pradheepa Raman</div>
+      <div class="title">Chief People Officer</div>
+      <span class="badge badge-web">GF Website</span>
+      <div class="linkedin"><a href="https://www.linkedin.com/search/results/all/?keywords=Pradheepa%20Raman%20GlobalFoundries" target="_blank">LinkedIn →</a></div>
+    </div>
+    <div class="card csuite">
+      <div class="name">Matthew Zack</div>
+      <div class="title">Chief Corporate Development Officer</div>
+      <span class="badge badge-web">GF Website</span>
+      <div class="linkedin"><a href="https://www.linkedin.com/search/results/all/?keywords=Matthew%20Zack%20GlobalFoundries" target="_blank">LinkedIn →</a></div>
+    </div>
+    <div class="card csuite">
+      <div class="name">Nancy Kelly</div>
+      <div class="title">Chief Communications & Marketing Officer</div>
+      <span class="badge badge-web">GF Website</span>
+      <div class="linkedin"><a href="https://www.linkedin.com/search/results/all/?keywords=Nancy%20Kelly%20GlobalFoundries" target="_blank">LinkedIn →</a></div>
+    </div>
+    <div class="card csuite">
+      <div class="name">Greg Pedersen</div>
+      <div class="title">Chief Accounting Officer</div>
+      <span class="badge badge-web">GF Website</span>
+      <div class="linkedin"><a href="https://www.linkedin.com/search/results/all/?keywords=Greg%20Pedersen%20GlobalFoundries" target="_blank">LinkedIn →</a></div>
+    </div>
+    <div class="card csuite">
+      <div class="name">Sameer Wasson</div>
+      <div class="title">CEO of MIPS, a GlobalFoundries company</div>
+      <span class="badge badge-web">GF Website</span>
+      <div class="linkedin"><a href="https://www.linkedin.com/search/results/all/?keywords=Sameer%20Wasson%20GlobalFoundries" target="_blank">LinkedIn →</a></div>
+    </div>
+  </div>
+
+  <div class="connector-down"></div>
+
+  <!-- SVPs -->
+  <div class="level-label">Senior Vice Presidents</div>
+  <div class="level">
+    <div class="card svp">
+      <div class="name">Ed Kaste</div>
+      <div class="title">SVP, CMOS Business</div>
+      <span class="badge badge-web">GF Website</span>
+      <div class="linkedin"><a href="https://www.linkedin.com/search/results/all/?keywords=Ed%20Kaste%20GlobalFoundries" target="_blank">LinkedIn →</a></div>
+    </div>
+    <div class="card svp">
+      <div class="name">Kannan Soundarapandian</div>
+      <div class="title">SVP, Power Business</div>
+      <span class="badge badge-web">GF Website</span>
+      <div class="linkedin"><a href="https://www.linkedin.com/search/results/all/?keywords=Kannan%20Soundarapandian%20GlobalFoundries" target="_blank">LinkedIn →</a></div>
+    </div>
+    <div class="card svp">
+      <div class="name">Téa Williams</div>
+      <div class="title">SVP, Silicon Photonics and RF Businesses</div>
+      <span class="badge badge-web">GF Website</span>
+      <div class="linkedin"><a href="https://www.linkedin.com/search/results/all/?keywords=Tea%20Williams%20GlobalFoundries" target="_blank">LinkedIn →</a></div>
+    </div>
+    <div class="card svp">
+      <div class="name">Manfred Horstmann</div>
+      <div class="title">SVP, Global Fab Engineering Services & GM European Fabs</div>
+      <span class="badge badge-web">GF Website</span>
+      <div class="linkedin"><a href="https://www.linkedin.com/search/results/all/?keywords=Manfred%20Horstmann%20GlobalFoundries" target="_blank">LinkedIn →</a></div>
+    </div>
+    <div class="card svp">
+      <div class="name">Shankaran Janardhanan</div>
+      <div class="title">SVP, Radio Frequency (RF) Business</div>
+      <span class="badge badge-web">GF Website</span>
+      <div class="linkedin"><a href="https://www.linkedin.com/search/results/all/?keywords=Shankaran%20Janardhanan%20GlobalFoundries" target="_blank">LinkedIn →</a></div>
+    </div>
+    <div class="card svp">
+      <div class="name">Kamal Khouri</div>
+      <div class="title">SVP, Feature-rich CMOS Business</div>
+      <span class="badge badge-web">GF Website</span>
+      <div class="linkedin"><a href="https://www.linkedin.com/search/results/all/?keywords=Kamal%20Khouri%20GlobalFoundries" target="_blank">LinkedIn →</a></div>
+    </div>
+    <div class="card svp">
+      <div class="name">Hui Peng Koh</div>
+      <div class="title">SVP & GM, New York Fab</div>
+      <span class="badge badge-web">GF Website</span>
+      <div class="linkedin"><a href="https://www.linkedin.com/search/results/all/?keywords=Hui%20Peng%20Koh%20GlobalFoundries" target="_blank">LinkedIn →</a></div>
+    </div>
+    <div class="card svp">
+      <div class="name">Ken McAvey</div>
+      <div class="title">SVP & GM, Vermont Fab</div>
+      <span class="badge badge-web">GF Website</span>
+      <div class="linkedin"><a href="https://www.linkedin.com/search/results/all/?keywords=Ken%20McAvey%20GlobalFoundries" target="_blank">LinkedIn →</a></div>
+    </div>
+    <div class="card svp">
+      <div class="name">Yew Kong Tan</div>
+      <div class="title">SVP & GM, GF APAC Manufacturing & Singapore Site</div>
+      <span class="badge badge-web">GF Website</span>
+      <div class="linkedin"><a href="https://www.linkedin.com/search/results/all/?keywords=Yew%20Kong%20Tan%20GlobalFoundries" target="_blank">LinkedIn →</a></div>
+    </div>
+    <div class="card svp">
+      <div class="name">Faisal Saleem</div>
+      <div class="title">SVP, Head of End Markets Strategy & Business Development</div>
+      <span class="badge badge-web">GF Website</span>
+      <div class="linkedin"><a href="https://www.linkedin.com/search/results/all/?keywords=Faisal%20Saleem%20GlobalFoundries" target="_blank">LinkedIn →</a></div>
+    </div>
+    <div class="card svp">
+      <div class="name">Kevin Soukup</div>
+      <div class="title">SVP, Silicon Photonics Business</div>
+      <span class="badge badge-web">GF Website</span>
+      <div class="linkedin"><a href="https://www.linkedin.com/search/results/all/?keywords=Kevin%20Soukup%20GlobalFoundries" target="_blank">LinkedIn →</a></div>
+    </div>
+    <div class="card svp">
+      <div class="name">Ashlie Wallace</div>
+      <div class="title">SVP, Global Supply Chain</div>
+      <span class="badge badge-web">GF Website</span>
+      <div class="linkedin"><a href="https://www.linkedin.com/search/results/all/?keywords=Ashlie%20Wallace%20GlobalFoundries" target="_blank">LinkedIn →</a></div>
+    </div>
+  </div>
+
+  <div class="connector-down"></div>
+
+  <!-- VPs & Corporate Fellow -->
+  <div class="level-label">Vice Presidents & Corporate Fellow</div>
+  <div class="level">
+    <div class="card svp">
+      <div class="name">Kunal Ahuja</div>
+      <div class="title">VP, Business Performance & Transformation</div>
+      <span class="badge badge-web">GF Website</span>
+      <div class="linkedin"><a href="https://www.linkedin.com/search/results/all/?keywords=Kunal%20Ahuja%20GlobalFoundries" target="_blank">LinkedIn →</a></div>
+    </div>
+    <div class="card svp">
+      <div class="name">Colin Born</div>
+      <div class="title">VP, Corporate Development</div>
+      <span class="badge badge-web">GF Website</span>
+      <div class="linkedin"><a href="https://www.linkedin.com/search/results/all/?keywords=Colin%20Born%20GlobalFoundries" target="_blank">LinkedIn →</a></div>
+    </div>
+    <div class="card svp">
+      <div class="name">Matt Krupnick</div>
+      <div class="title">VP, Global Government Affairs</div>
+      <span class="badge badge-web">GF Website</span>
+      <div class="linkedin"><a href="https://www.linkedin.com/search/results/all/?keywords=Matt%20Krupnick%20GlobalFoundries" target="_blank">LinkedIn →</a></div>
+    </div>
+    <div class="card svp">
+      <div class="name">Ted Letavic</div>
+      <div class="title">Corporate Fellow</div>
+      <span class="badge badge-web">GF Website</span>
+      <div class="linkedin"><a href="https://www.linkedin.com/search/results/all/?keywords=Ted%20Letavic%20GlobalFoundries" target="_blank">LinkedIn →</a></div>
+    </div>
+  </div>
+</div>
+
+<!-- IT & Engineering Section (Salesforce) -->
+<div class="section">
+  <h2>IT, Engineering & Technical Contacts (Salesforce)</h2>
+  
+  <div class="level-label">Directors</div>
+  <div class="level">
+    <div class="card director">
+      <div class="name">Jimmy Goh</div>
+      <div class="title">Director, Enterprise Architecture</div>
+      <div class="email"><a href="mailto:jimmy.goh@globalfoundries.com">jimmy.goh@globalfoundries.com</a></div>
+      <span class="badge badge-sf">Salesforce</span>
+      <div class="linkedin"><a href="https://www.linkedin.com/search/results/all/?keywords=Jimmy%20Goh%20GlobalFoundries" target="_blank">LinkedIn →</a></div>
+    </div>
+    <div class="card director">
+      <div class="name">Jim Colelli</div>
+      <div class="title">Director of Development for Manufacturing</div>
+      <div class="email"><a href="mailto:james.colelli@globalfoundries.com">james.colelli@globalfoundries.com</a></div>
+      <span class="badge badge-sf">Salesforce</span>
+      <div class="linkedin"><a href="https://www.linkedin.com/search/results/all/?keywords=Jim%20Colelli%20GlobalFoundries" target="_blank">LinkedIn →</a></div>
+    </div>
+    <div class="card director">
+      <div class="name">Geoff Warren</div>
+      <div class="title">Director of Global IT Procurement</div>
+      <div class="email"><a href="mailto:geoff.warren@globalfoundries.com">geoff.warren@globalfoundries.com</a></div>
+      <span class="badge badge-sf">Salesforce</span>
+      <div class="linkedin"><a href="https://www.linkedin.com/search/results/all/?keywords=Geoff%20Warren%20GlobalFoundries" target="_blank">LinkedIn →</a></div>
+    </div>
+    <div class="card director">
+      <div class="name">King Ou</div>
+      <div class="title">Director, Systems and Solutions</div>
+      <div class="email"><a href="mailto:king.ou@globalfoundries.com">king.ou@globalfoundries.com</a></div>
+      <span class="badge badge-sf">Salesforce</span>
+      <div class="linkedin"><a href="https://www.linkedin.com/search/results/all/?keywords=King%20Ou%20GlobalFoundries" target="_blank">LinkedIn →</a></div>
+    </div>
+    <div class="card director">
+      <div class="name">Kin Tang</div>
+      <div class="title">Director, Module Engineering</div>
+      <div class="email"><a href="mailto:kinwai.tang@globalfoundries.com">kinwai.tang@globalfoundries.com</a></div>
+      <span class="badge badge-sf">Salesforce</span>
+      <div class="linkedin"><a href="https://www.linkedin.com/search/results/all/?keywords=Kin%20Tang%20GlobalFoundries" target="_blank">LinkedIn →</a></div>
+    </div>
+  </div>
+
+  <div class="level-label" style="margin-top:20px;">Innovation & Technical Staff</div>
+  <div class="level">
+    <div class="card director">
+      <div class="name">Vijindra Pandhari</div>
+      <div class="title">Innovation Senior Leader</div>
+      <div class="email"><a href="mailto:vijindra.gururaj@globalfoundries.com">vijindra.gururaj@globalfoundries.com</a></div>
+      <span class="badge badge-sf">Salesforce</span>
+    </div>
+    <div class="card manager">
+      <div class="name">Baijnath Rathour</div>
+      <div class="title">Salesforce Technical Architect</div>
+      <div class="email"><a href="mailto:baijnath.rathour@globalfoundries.com">baijnath.rathour@globalfoundries.com</a></div>
+      <span class="badge badge-sf">Salesforce</span>
+    </div>
+    <div class="card manager">
+      <div class="name">Christopher Cartier</div>
+      <div class="title">IBM Integration</div>
+      <div class="email"><a href="mailto:christopher.cartier@globalfoundries.com">christopher.cartier@globalfoundries.com</a></div>
+      <span class="badge badge-sf">Salesforce</span>
+    </div>
+    <div class="card manager">
+      <div class="name">Madhupriya P</div>
+      <div class="title">Principal Analyst</div>
+      <div class="email"><a href="mailto:madhupriya.p@globalfoundries.com">madhupriya.p@globalfoundries.com</a></div>
+      <span class="badge badge-sf">Salesforce</span>
+    </div>
+  </div>
+
+  <div class="level-label" style="margin-top:20px;">Engineers & Technical Staff</div>
+  <div class="level">
+    <div class="card manager">
+      <div class="name">Steven Parker</div>
+      <div class="title">Principal Member of Technical Staff</div>
+      <div class="email"><a href="mailto:steven.parker@globalfoundries.com">steven.parker@globalfoundries.com</a></div>
+      <span class="badge badge-sf">Salesforce</span>
+    </div>
+    <div class="card manager">
+      <div class="name">Noel Rives</div>
+      <div class="title">Principal Member of Technical Staff</div>
+      <div class="email"><a href="mailto:noel.rives@globalfoundries.com">noel.rives@globalfoundries.com</a></div>
+      <span class="badge badge-sf">Salesforce</span>
+    </div>
+    <div class="card manager">
+      <div class="name">Satish Bhat</div>
+      <div class="title">Member of Technical Staff</div>
+      <div class="email"><a href="mailto:satish.bhat@globalfoundries.com">satish.bhat@globalfoundries.com</a></div>
+      <span class="badge badge-sf">Salesforce</span>
+    </div>
+    <div class="card manager">
+      <div class="name">Karan Chauhan</div>
+      <div class="title">Senior Software Engineer</div>
+      <div class="email"><a href="mailto:karananil.chauhan@globalfoundries.com">karananil.chauhan@globalfoundries.com</a></div>
+      <span class="badge badge-sf">Salesforce</span>
+    </div>
+    <div class="card manager">
+      <div class="name">Bhanu Akundi</div>
+      <div class="title">Project Manager</div>
+      <div class="email"><a href="mailto:bhanu.akundi@globalfoundries.com">bhanu.akundi@globalfoundries.com</a></div>
+      <span class="badge badge-sf">Salesforce</span>
+    </div>
+  </div>
+
+  <div class="level-label" style="margin-top:20px;">Other Contacts</div>
+  <div class="level">
+    <div class="card manager">
+      <div class="name">Mark Craig</div>
+      <div class="email"><a href="mailto:mark.craig@globalfoundries.com">mark.craig@globalfoundries.com</a></div>
+      <span class="badge badge-sf">Salesforce</span>
+    </div>
+    <div class="card manager">
+      <div class="name">Torsten Seiler</div>
+      <div class="email"><a href="mailto:torsten.seiler@globalfoundries.com">torsten.seiler@globalfoundries.com</a></div>
+      <span class="badge badge-sf">Salesforce</span>
+    </div>
+  </div>
+</div>
+
+<div style="text-align:center;margin-top:30px;color:#999;font-size:11px;">
+  <p>Sources: GF Website (gf.com/about-us/leadership-team) | GitHub Salesforce CRM | Last updated: May 14, 2026</p>
+  <p>Leadership names/titles verified from gf.com. IT/Technical contacts from Salesforce.</p>
+  <p>⚠ LinkedIn profiles should be manually confirmed — search links provided for convenience.</p>
+</div>
+
+</body>
+</html>
